@@ -17,7 +17,6 @@ void swap(struct Student *a, struct Student *b) {
     *b = temp;
 }
 
-// Partition function for Quick Sort
 int partition(struct Student students[], int low, int high) {
 
     struct Student pivot = students[high];
@@ -45,7 +44,7 @@ int partition(struct Student students[], int low, int high) {
     return i + 1;
 }
 
-// Quick Sort function
+// Quick Sort
 void quickSort(struct Student students[], int low, int high) {
 
     if (low < high) {
@@ -86,7 +85,7 @@ int main() {
 
     fclose(inputFile);
 
-    // Sort students using Quick Sort
+    // Quick Sort students
     quickSort(students, 0, count - 1);
 
     // Open output file
@@ -97,7 +96,7 @@ int main() {
         return 1;
     }
 
-    // Write sorted records to output file
+    // Write sorted records to the output file
     for (int i = 0; i < count; i++) {
 
         fprintf(outputFile, "%s %s %s %d\n",
