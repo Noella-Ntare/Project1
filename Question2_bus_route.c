@@ -1,12 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-#ifdef _WIN32
-#include <windows.h>
-#else
 #include <unistd.h>
-#endif
 
 // Structure for a bus stop
 struct BusStop {
@@ -100,7 +95,7 @@ void moveBackward(struct BusStop *tail) {
     printf("Reached Home.\n");
 }
 
-// Free memory
+// free memory
 void freeList(struct BusStop *head) {
 
     struct BusStop *temp;
