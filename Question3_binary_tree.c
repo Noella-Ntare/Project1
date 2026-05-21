@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Structure for a tree node
 struct Node {
 
     int data;
@@ -10,7 +9,7 @@ struct Node {
     struct Node *right;
 };
 
-// Function to create a new node
+// create a new node
 struct Node* createNode(int value) {
 
     struct Node *newNode;
@@ -25,20 +24,16 @@ struct Node* createNode(int value) {
     return newNode;
 }
 
-// Insert node using Binary Search Tree rule
+// Insert node 
 struct Node* insert(struct Node *root, int value) {
 
-    // If tree is empty
+
     if (root == NULL) {
         return createNode(value);
     }
-
-    // Insert to left if smaller
     if (value < root->data) {
         root->left = insert(root->left, value);
     }
-
-    // Insert to right if larger
     else if (value > root->data) {
         root->right = insert(root->right, value);
     }
@@ -61,7 +56,7 @@ void printLeafNodes(struct Node *root) {
     printLeafNodes(root->right);
 }
 
-// Find parent of a node
+// Find parent
 struct Node* findParent(struct Node *root, int value) {
 
     if (root == NULL) {
@@ -123,7 +118,7 @@ void printGrandchildren(struct Node *node) {
 
     int found = 0;
 
-    // Left child's children
+    
     if (node->left != NULL) {
 
         if (node->left->left != NULL) {
@@ -181,15 +176,13 @@ int main() {
 
     struct Node *root = NULL;
 
-    // Build binary search tree
+    // Build tree
     for (int i = 0; i < size; i++) {
         root = insert(root, values[i]);
     }
 
-    // Print root node
     printf("Root Node: %d\n", root->data);
 
-    // Print leaf nodes
     printf("\nLeaf Nodes:\n");
     printLeafNodes(root);
 
@@ -201,7 +194,7 @@ int main() {
 
     struct Node *selectedNode = findNode(root, value);
 
-    // Handle invalid input
+    // for invalid input
     if (selectedNode == NULL) {
 
         printf("Node not found in the tree.\n");
