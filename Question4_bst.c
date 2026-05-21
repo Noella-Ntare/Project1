@@ -128,7 +128,7 @@ int main() {
 
     FILE *file;
 
-    file = fopen("students.txt", "r");
+    file = fopen("students_bst.txt", "r");
 
     // Handle missing file
     if (file == NULL) {
@@ -146,11 +146,11 @@ int main() {
     int records = 0;
 
     // Read records from file
-    while (fscanf(file, "%[^|]| %[^|]| %d\n",
-                  firstName,
-                  lastName,
-                  &grade) == 3) {
-
+    while (fscanf(file, " %49[^|]| %49[^|]| %d",
+              firstName,
+              lastName,
+              &grade) == 3) {
+                
         root = insert(root,
                       firstName,
                       lastName,
