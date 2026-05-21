@@ -13,7 +13,7 @@ struct Node {
     struct Node *right;
 };
 
-// Create new node
+// create new node
 struct Node* createNode(char firstName[], char lastName[], int grade) {
 
     struct Node *newNode;
@@ -150,7 +150,7 @@ int main() {
               firstName,
               lastName,
               &grade) == 3) {
-                
+
         root = insert(root,
                       firstName,
                       lastName,
