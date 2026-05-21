@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Structure for BST node
+
 struct Node {
 
     char firstName[50];
@@ -31,19 +31,17 @@ struct Node* createNode(char firstName[], char lastName[], int grade) {
     return newNode;
 }
 
-// Insert into BST using last name as key
+// Insert using last name 
 struct Node* insert(struct Node *root,
                     char firstName[],
                     char lastName[],
                     int grade) {
 
-    // Create node if tree is empty
+    
     if (root == NULL) {
 
         return createNode(firstName, lastName, grade);
     }
-
-    // Compare last names
     if (strcmp(lastName, root->lastName) < 0) {
 
         root->left = insert(root->left,
@@ -51,8 +49,6 @@ struct Node* insert(struct Node *root,
                             lastName,
                             grade);
     }
-
-    // Duplicate last names go to the right
     else {
 
         root->right = insert(root->right,
@@ -64,7 +60,7 @@ struct Node* insert(struct Node *root,
     return root;
 }
 
-// Search student by last name
+// Search student using last name
 void search(struct Node *root, char lastName[]) {
 
     if (root == NULL) {
@@ -75,19 +71,17 @@ void search(struct Node *root, char lastName[]) {
 
     int compare = strcmp(lastName, root->lastName);
 
-    // Search left
+// Search left
     if (compare < 0) {
 
         search(root->left, lastName);
     }
-
-    // Search right
+// Search right
     else if (compare > 0) {
 
         search(root->right, lastName);
     }
-
-    // Found
+// Found
     else {
 
         printf("\nStudent Record Found:\n");
@@ -96,7 +90,6 @@ void search(struct Node *root, char lastName[]) {
         printf("Last Name : %s\n", root->lastName);
         printf("Grade     : %d\n", root->grade);
 
-        // Continue searching right for duplicates
         search(root->right, lastName);
     }
 }
@@ -175,12 +168,12 @@ int main() {
         return 1;
     }
 
-    // Display all records
+    // display records
     printf("Student Records Sorted by Last Name:\n\n");
 
     inOrder(root);
 
-    // Search operation
+
     char searchName[50];
 
     printf("\nEnter last name to search: ");
