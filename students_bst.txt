@@ -1,0 +1,10 @@
+Alice|Smith|85
+Bob|Johnson|72
+Charlie|Brown|91
+Diana|Prince|60
+Eve|Adams|78
+Frank|Castle|55
+Grace|Hopper|95
+Henry|Ford|82
+Iris|West|67
+Jack|Ryan|91
